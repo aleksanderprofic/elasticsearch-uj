@@ -1,0 +1,85 @@
+# Jak SELECT *
+POST /ex1/_search
+{
+  "query": {
+    "match_all":{}
+  }
+}
+
+POST /ex1/_search
+{
+  "query": {
+    "match": {
+      "name": "Walkiewicz"
+    }
+  }
+}
+
+POST /ex1/_search
+{
+  "query": {
+    "match": {
+      "name": "Zaleska-barczewska"
+    }
+  }
+}
+
+POST /ex1/_search
+{
+  "query": {
+    "match": {
+      "name": "Nowak"
+    }
+  }
+}
+
+POST /ex1/_search
+{
+  "query": {
+    "match": {
+      "name": "Kowalski"
+    }
+  }
+}
+
+POST /ex1/_search
+{
+  "query": {
+    "match": {
+      "name": "Nowak-Kowalski"
+    }
+  }
+}
+
+
+GET /ex1/_mapping
+
+
+PUT /ex1_b
+
+GET /ex1_b/_mapping
+
+PUT /ex1_b/_mapping
+{
+  "properties": {
+    "birthDate": {
+      "type": "date",
+    },
+    "name": {
+      "type": "keyword"
+    },
+    "partyId": {
+      "type": "long"
+    }
+  }
+}
+
+PUT /ex1_b/_doc/1
+{
+  "partyId": 1,
+  "firstName": "Aleksander",
+  "name": "Profic",
+  "label": "Aleksander Profic"
+}
+
+GET /ex1_b/_doc/1

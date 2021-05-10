@@ -1,0 +1,36 @@
+GET /ex3/_mapping
+
+GET /ex3/_settings
+
+POST /ex3/_search
+{
+  "query": {
+    "match": {
+    " name": "Kowa"
+    }
+  }
+}
+
+
+POST /ex3/_search
+{
+  "query": {
+    "match": {
+      "name.autocomplete": "Kowa"
+    }
+  }
+}
+
+
+
+GET /ex3/25/_termvector?fields=name.autocomplete
+
+
+GET /_analyze
+{
+  "tokenizer": "keyword",
+  "filter": [
+    "lowercase"
+  ],
+  "text": "Nowak-kowa"
+}

@@ -1,0 +1,33 @@
+# Dodanie/aktualizacja dokumentu o id=1
+PUT party/_doc/1
+{
+  "partyId": 1,
+  "firstName": "Aleksander",
+  "name": "Profic",
+  "label": "Aleksander Profic",
+  "birthDate": "2010-05-05"
+}
+
+# Wyciągnięcie dokumentu z indeksu 'party' o id=1
+GET party/_doc/1
+
+# Dodanie nowego dokumentu bez podania id
+POST party/_doc
+{
+  "partyId": 2,
+  "firstName": "Anna",
+  "name": "Sarnavska",
+  "label": "Anna Sarnavska",
+  "birthDate": "2015-02-12"
+}
+
+# Usunięcie dokumentu
+DELETE party/_doc/1
+
+# Usunięcie całego indeksu
+DELETE party
+
+# SEARCH - Szukanie wszystkiego w indeksie 'party'
+GET party/_search
+
+GET p*/_search

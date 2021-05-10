@@ -1,0 +1,20 @@
+GET /ex2/_mapping
+
+
+POST /ex2/_search
+{
+  "query": {
+    "match": {
+      "name": "Nowak-Kowalski"
+    }
+  }
+}
+
+POST /ex2/_search
+{
+  "query": {
+    "match": {
+      "name.keyword": "Nowak-Kowalski"
+    }
+  }
+}

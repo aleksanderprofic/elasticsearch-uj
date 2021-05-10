@@ -1,0 +1,43 @@
+GET /ex5/_mapping
+
+
+POST /ex5/_search
+{
+  "query": {
+    "nested": {
+      "path": "addresses",
+      "query": {
+        "match": {
+          "addresses.street": "Marszałkowska"
+        }
+      }
+    }
+  }
+}
+
+POST /ex5/_search
+{
+  "query": {
+    "nested": {
+      "path": "addresses",
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "addresses.street": "Marszałkowska"
+              }
+            },
+            {
+              "match": {
+                "addresses.city": "Gdynia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
+
